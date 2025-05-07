@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package flowmart.orders.commands;
+
+option java_package = "com.flowmart.orders.commands.proto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+message UpdateOrderCommand {
+  string command_id = 1;
+  string order_id = 2;
+
+  // Optional: Only fields that are present will be updated
+  optional string status = 3; // e.g., "CANCELLED"
+  optional Address shipping_address = 4;
+  optional string requested_by_user_id = 5; // User requesting the change
+  google.protobuf.Timestamp update_timestamp = 6;
+
+  message Address { // Re-defining for clarity, could be imported
+    string street = 1;
+    string city = 2;
+    string state = 3;
+    string postal_code = 4;
+    string country = 5;
+  }
+} 

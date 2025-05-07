@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package flowmart.payments.commands;
+
+option java_package = "com.flowmart.payments.commands.proto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+message ProcessPaymentCommand {
+  string command_id = 1;
+  string order_id = 2;
+  string user_id = 3;
+  double amount = 4;
+  string currency = 5; // e.g., USD, EUR
+  string payment_method_token = 6; // Token representing payment details
+  string idempotency_key = 7;
+  google.protobuf.Timestamp requested_at = 8;
+} 

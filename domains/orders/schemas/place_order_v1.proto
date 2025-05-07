@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package flowmart.orders.commands;
+
+option java_package = "com.flowmart.orders.commands.proto";
+option java_multiple_files = true;
+
+message PlaceOrderCommand {
+  string command_id = 1; // Unique ID for this command instance
+  string user_id = 2;
+  repeated OrderItem items = 3;
+  Address shipping_address = 4;
+  Address billing_address = 5;
+  string payment_method_id = 6; // e.g., tokenized card, PayPal transaction id
+  string idempotency_key = 7; // To prevent duplicate processing
+
+  message OrderItem {
+    string product_id = 1;
+    int32 quantity = 2;
+    double unit_price = 3; // Price at the time of placing order
+  }
+
+  message Address {
+    string street = 1;
+    string city = 2;
+    string state = 3;
+    string postal_code = 4;
+    string country = 5; // ISO 3166-1 alpha-2
+  }
+} 

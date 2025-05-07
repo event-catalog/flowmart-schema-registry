@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package flowmart.products.commands;
+
+option java_package = "com.flowmart.products.commands.proto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+message UpdateProductDetailsCommand {
+  string command_id = 1;
+  string product_id = 2;
+  optional string name = 3;
+  optional string description = 4;
+  optional double price = 5;
+  optional string category_id = 6;
+  repeated string tags_to_add = 7;
+  repeated string tags_to_remove = 8;
+  optional string image_url = 9;
+  string updated_by_user_id = 10;
+  google.protobuf.Timestamp updated_at = 11;
+} 
