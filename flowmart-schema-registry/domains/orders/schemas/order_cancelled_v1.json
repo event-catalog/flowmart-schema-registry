@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderCancelledEvent",
+  "description": "Schema for an event when an order is cancelled",
+  "type": "object",
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "orderId": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Reason for cancellation"
+    },
+    "cancelledBy": {
+      "type": "string",
+      "enum": ["USER", "SYSTEM", "ADMIN"],
+      "description": "Who initiated the cancellation"
+    }
+  },
+  "required": [
+    "eventId",
+    "timestamp",
+    "orderId",
+    "reason",
+    "cancelledBy"
+  ]
+} 

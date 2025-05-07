@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Payment",
+  "description": "Schema for a payment transaction in FlowMart",
+  "type": "object",
+  "properties": {
+    "paymentId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "orderId": {
+      "type": "string",
+      "description": "Identifier of the order this payment is for"
+    },
+    "userId": {
+      "type": "string",
+      "description": "Identifier of the user making the payment"
+    },
+    "amount": {
+      "type": "number",
+      "format": "float",
+      "minimum": 0.01
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD"
+    },
+    "paymentMethod": {
+      "type": "string",
+      "enum": ["CREDIT_CARD", "PAYPAL", "BANK_TRANSFER", "GIFT_CARD"]
+    },
+    "paymentStatus": {
+      "type": "string",
+      "enum": ["PENDING", "SUCCESSFUL", "FAILED", "REFUNDED"]
+    },
+    "transactionId": {
+      "type": ["string", "null"],
+      "description": "Transaction ID from the payment gateway"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "paymentId",
+    "orderId",
+    "userId",
+    "amount",
+    "currency",
+    "paymentMethod",
+    "paymentStatus",
+    "createdAt"
+  ]
+} 

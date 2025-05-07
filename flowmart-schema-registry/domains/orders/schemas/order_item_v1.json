@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderItem",
+  "description": "Schema for an item within an order",
+  "type": "object",
+  "properties": {
+    "orderItemId": {
+      "type": "string"
+    },
+    "productId": {
+      "type": "string",
+      "description": "Identifier of the product"
+    },
+    "quantity": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "unitPrice": {
+      "type": "number",
+      "format": "float",
+      "description": "Price per unit at the time of order"
+    },
+    "totalPrice": {
+      "type": "number",
+      "format": "float",
+      "description": "Total price for this item (quantity * unitPrice)"
+    }
+  },
+  "required": [
+    "orderItemId",
+    "productId",
+    "quantity",
+    "unitPrice",
+    "totalPrice"
+  ]
+} 

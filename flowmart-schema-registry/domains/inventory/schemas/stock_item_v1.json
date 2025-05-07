@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "StockItem",
+  "description": "Schema for a stock item in FlowMart inventory",
+  "type": "object",
+  "properties": {
+    "sku": {
+      "type": "string",
+      "description": "Stock Keeping Unit"
+    },
+    "productId": {
+      "type": "string",
+      "description": "Identifier of the product associated with this stock item"
+    },
+    "quantity": {
+      "type": "integer",
+      "description": "Current quantity in stock",
+      "minimum": 0
+    },
+    "location": {
+      "type": "string",
+      "description": "Warehouse or location identifier"
+    },
+    "lowStockThreshold": {
+      "type": "integer",
+      "description": "Threshold at which a low stock alert is triggered",
+      "minimum": 0
+    },
+    "lastStockUpdate": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "sku",
+    "productId",
+    "quantity",
+    "location"
+  ]
+} 

@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Order",
+  "description": "Schema for a customer order in FlowMart",
+  "type": "object",
+  "properties": {
+    "orderId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "userId": {
+      "type": "string",
+      "description": "Identifier of the user who placed the order"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "order_item_v1.json"
+      }
+    },
+    "totalAmount": {
+      "type": "number",
+      "format": "float",
+      "minimum": 0
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["PENDING", "PROCESSING", "SHIPPED", "DELIVERED", "CANCELLED", "RETURNED"]
+    },
+    "shippingAddressId": {
+      "type": "string",
+      "description": "Identifier for the shipping address (references an address schema)"
+    },
+    "billingAddressId": {
+      "type": "string",
+      "description": "Identifier for the billing address (references an address schema)"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "orderId",
+    "userId",
+    "items",
+    "totalAmount",
+    "status",
+    "shippingAddressId",
+    "createdAt"
+  ]
+} 

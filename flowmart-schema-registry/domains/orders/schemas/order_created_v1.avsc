@@ -1,0 +1,38 @@
+{
+  "type": "record",
+  "name": "OrderCreatedEvent",
+  "namespace": "com.flowmart.orders.events",
+  "doc": "Event triggered when a new order is successfully created.",
+  "fields": [
+    {
+      "name": "eventId",
+      "type": "string"
+    },
+    {
+      "name": "timestamp",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    },
+    {
+      "name": "orderId",
+      "type": "string"
+    },
+    {
+      "name": "userId",
+      "type": "string"
+    },
+    {
+      "name": "totalAmount",
+      "type": "double"
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "default": "USD"
+    },
+    {
+      "name": "itemCount",
+      "type": "int"
+    }
+  ]
+} 

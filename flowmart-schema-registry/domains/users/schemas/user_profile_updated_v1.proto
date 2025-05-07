@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package flowmart.users.events;
+
+option java_package = "com.flowmart.users.events.proto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+message UserProfileUpdatedEvent {
+  string event_id = 1;
+  google.protobuf.Timestamp timestamp = 2;
+  string user_id = 3;
+
+  // Fields that could have been updated
+  // Use optional to indicate presence if updated
+  optional string first_name = 4;
+  optional string last_name = 5;
+  optional string phone = 6;
+  // Preferences can be a nested message if complex
+  // For simplicity, not nesting here
+  optional bool newsletter_subscribed = 7;
+} 

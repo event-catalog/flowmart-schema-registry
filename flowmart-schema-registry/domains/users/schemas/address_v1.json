@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Address",
+  "description": "Schema for a postal address",
+  "type": "object",
+  "properties": {
+    "addressId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "userId": {
+      "type": "string",
+      "description": "Identifier of the user this address belongs to"
+    },
+    "street": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-2 country code (e.g., US, CA)"
+    },
+    "addressType": {
+      "type": "string",
+      "enum": ["SHIPPING", "BILLING", "HOME", "WORK"],
+      "description": "Type of address"
+    },
+    "isDefault": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "addressId",
+    "userId",
+    "street",
+    "city",
+    "state",
+    "postalCode",
+    "country"
+  ]
+} 

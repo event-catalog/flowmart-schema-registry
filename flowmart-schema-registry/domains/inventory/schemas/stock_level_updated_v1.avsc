@@ -1,0 +1,40 @@
+{
+  "type": "record",
+  "name": "StockLevelUpdatedEvent",
+  "namespace": "com.flowmart.inventory.events",
+  "doc": "Event triggered when the stock level of an item is updated.",
+  "fields": [
+    {
+      "name": "eventId",
+      "type": "string"
+    },
+    {
+      "name": "timestamp",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    },
+    {
+      "name": "sku",
+      "type": "string",
+      "doc": "Stock Keeping Unit"
+    },
+    {
+      "name": "productId",
+      "type": "string"
+    },
+    {
+      "name": "newQuantity",
+      "type": "int"
+    },
+    {
+      "name": "previousQuantity",
+      "type": "int"
+    },
+    {
+      "name": "updateReason",
+      "type": ["null", "string"],
+      "default": null,
+      "doc": "Reason for the stock update (e.g., SALE, RETURN, ADJUSTMENT)"
+    }
+  ]
+} 

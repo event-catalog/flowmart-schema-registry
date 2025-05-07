@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package flowmart.orders.events;
+
+option java_package = "com.flowmart.orders.events.proto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+message OrderShippedEvent {
+  string event_id = 1;
+  google.protobuf.Timestamp timestamp = 2;
+  string order_id = 3;
+  string shipping_carrier = 4;
+  string tracking_number = 5;
+  google.protobuf.Timestamp estimated_delivery_date = 6;
+} 

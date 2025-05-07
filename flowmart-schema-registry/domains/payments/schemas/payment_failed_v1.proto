@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package flowmart.payments.events;
+
+option java_package = "com.flowmart.payments.events.proto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+message PaymentFailedEvent {
+  string event_id = 1;
+  google.protobuf.Timestamp timestamp = 2;
+  string payment_id = 3;
+  string order_id = 4;
+  string failure_reason = 5;
+  string failure_code = 6; // Optional: Error code from payment gateway
+} 

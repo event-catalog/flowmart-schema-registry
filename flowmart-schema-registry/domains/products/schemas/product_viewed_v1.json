@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProductViewedEvent",
+  "description": "Schema for an event when a user views a product",
+  "type": "object",
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "userId": {
+      "type": ["string", "null"],
+      "description": "Identifier of the user who viewed the product (null if anonymous)"
+    },
+    "productId": {
+      "type": "string",
+      "description": "Identifier of the viewed product"
+    },
+    "sessionId": {
+      "type": ["string", "null"],
+      "description": "Session identifier for tracking user activity"
+    }
+  },
+  "required": [
+    "eventId",
+    "timestamp",
+    "productId"
+  ]
+} 

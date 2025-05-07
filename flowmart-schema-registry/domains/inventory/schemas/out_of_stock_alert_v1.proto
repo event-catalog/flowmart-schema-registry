@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package flowmart.inventory.events;
+
+option java_package = "com.flowmart.inventory.events.proto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+message OutOfStockAlertEvent {
+  string event_id = 1;
+  google.protobuf.Timestamp timestamp = 2;
+  string sku = 3;
+  string product_id = 4;
+  int32 current_quantity = 5; // Should be 0 or very low
+} 
